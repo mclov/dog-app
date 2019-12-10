@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DogList from './DogList';
-import DogDetail from './DogDetail';
+import DogDetails from './DogDetails';
 import { Switch, Route } from 'react-router-dom';
 import whiskey from './images/puppy1.jpeg';
 import hazel from './images/puppy2.jpeg';
@@ -43,13 +43,20 @@ class App extends Component {
     ]
   };
   render() {
+    const getDog = (props) => {
+      let name = props.match.params.name;
+      let currentDog = this.props.dogs.find(
+        dog => dog.name.toLowerCase() === name.toLowerCase()
+      );
+      return <DogDetails {...props} dog={currentDog} />
+    }
     return (
       <div>
         {/* <Navbar dogs={this.props.dogs} /> */}
         <div className='container'>
           <Switch>
             <Route exact path='/dogs' render={() => <DogList dogs={this.props.dogs} />} />
-            <Route exact path='/dogs/:name' render={() => <DogDetail />} />
+            <Route exact path='/dogs/:name' render={getDog} />
           </Switch>
         </div>
       </div>
