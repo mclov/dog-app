@@ -1,4 +1,8 @@
+.DogDetails {
+  width: 100%;
+}
+
 .DogDetails img {
   width: 100%;
-  align-self: auto;
+  align-self: center;
 }
