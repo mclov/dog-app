@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DogList from './DogList';
+import DogDetail from './DogDetail';
 import { Switch, Route } from 'react-router-dom';
 import whiskey from './images/puppy1.jpeg';
 import hazel from './images/puppy2.jpeg';
@@ -46,7 +47,10 @@ class App extends Component {
       <div>
         {/* <Navbar dogs={this.props.dogs} /> */}
         <div className='container'>
-          <Route exact path='/dogs' render={() => <DogList dogs={this.props.dogs} />} />
+          <Switch>
+            <Route exact path='/dogs' render={() => <DogList dogs={this.props.dogs} />} />
+            <Route exact path='/dogs/:name' render={() => <DogDetail />} />
+          </Switch>
         </div>
       </div>
     );
