@@ -14,7 +14,7 @@ export class DogDetail extends Component {
               <div className='card-body'>
                 <h2 className='card-title'>{dog.name}</h2>
                 <h4 className='card-subtitle text-muted'>
-                  {dog.age} year{dog.age == 1 ? '' : 's'} old
+                  {dog.age} year{dog.age === 1 ? '' : 's'} old
                 </h4>
               </div>
               <ul className='list-group list-group-flush'>
